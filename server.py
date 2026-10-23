@@ -116,4 +116,3 @@ def compare(dataset: str, metric: str, group_by: str, first: str, second: str) -
 if __name__ == "__main__":
     # Streamable HTTP endpoint is served at http://HOST:PORT/mcp
     mcp.run(transport="streamable-http")
-
