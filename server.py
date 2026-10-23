@@ -90,8 +90,8 @@ def trend(dataset: str, metric: str, date_column: str = "date") -> dict:
     change = (last - first) / first * 100 if first else 0.0
     best = s.idxmax()
     direction = "up" if change > 0 else "down"
-    speech = (f"{m} is {direction} {abs(change):.0f} percent from {s.index[0]:%B} to "
-              f"{s.index[-1]:%B}. The best month was {best:%B}, at {_fmt(s.max())}.")
+    speech = (f"{m} is {direction} {abs(change):.0f} percent from {s.index[0].strftime('%B')} to "
+              f"{s.index[-1].strftime('%B')}. The best month was {best.strftime('%B')}, at {_fmt(s.max())}.")
     return {"speech": speech, "series": {str(k): float(v) for k, v in s.items()}}
 
 
